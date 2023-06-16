@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <!-- Google font inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" >
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./index.css">
     
     <title>Color scheme generator</title>
 </head>
 <body>
     <header>
         <form>
-            <input type="color" id="">
+            <input type="color" class="color-picker" id="">
             <select id="">
                 <option value="">Monochrome</option>
                 <option value="">Monochrome-dark</option>
@@ -24,21 +30,21 @@
         </form>
     </header>
     <main>
-        <div class="color-bars-container">
-            <div class="color-bar"></div>
-            <div class="color-bar"></div>
-            <div class="color-bar"></div>
-            <div class="color-bar"></div>
-            <div class="color-bar"></div>
-        </div>
-        <ul>
-            <li>#2B443A</li>
-            <li>#2B443A</li>
-            <li>#2B443A</li>
-            <li>#2B443A</li>
-            <li>#2B443A</li>
-        </ul>
+        <div class="color-one"></div>
+        <div class="color-two"></div>
+        <div class="color-three"></div>
+        <div class="color-four"></div>
+        <div class="color-five"></div>
     </main>
+    <footer>
+        <ul>
+            <li class="hex-one">#2B443A</li>
+            <li class="hex-two">#2B443A</li>
+            <li class="hex-three">#2B443A</li>
+            <li class="hex-four">#2B443A</li>
+            <li class="hex-five">#2B443A</li>
+        </ul>
+    </footer>
     <script type="module" src="./script.js"></script>
 </body>
 </html>
