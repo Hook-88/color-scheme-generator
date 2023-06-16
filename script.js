@@ -23,18 +23,28 @@ function getColors() {
 }
 
 function render() {
-  let htmlMain = ""
-  let htmlFooter = ""
+  colorBarsConatiner.innerHTML = getColorBarsHTML()
+  hexcodeContainer.innerHTML = getColorHexValHTML()
+}
+
+function getColorBarsHTML() {
+  let html = ""
   colorsArray.forEach(color => {
-    htmlMain += `
+    html += `
       <div style="background: ${color}"></div>
     `
-    htmlFooter += `
+  })
+  return html
+}
+
+function getColorHexValHTML() {
+  let html = ""
+  colorsArray.forEach(color => {
+    html += `
       <li>${color}</li>
     `
   })
-  colorBarsConatiner.innerHTML = htmlMain
-  hexcodeContainer.innerHTML = htmlFooter
+  return html
 }
 
 getColors()
