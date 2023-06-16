@@ -16,6 +16,7 @@ function render() {
 }
 
 function getColors() {
+  let arr = []
   fetch(`https://www.thecolorapi.com/scheme?hex=${colorPickerEl.value.slice(1)}&mode=${colorModeEl.value}&count=5`)
     .then(res => res.json())
     .then(data => {      
