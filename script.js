@@ -11,13 +11,13 @@ form.addEventListener("submit", event => {
 form.addEventListener("change", () => render())
 
 colorBarsConatiner.addEventListener("click", event => {
-  getHexValue(event.target.style.backgroundColor)
+  // console.log(getHexValue(event.target.style.backgroundColor))
+  getHexValue(event.target.style.backgroundColor) 
 })
 
 hexcodeContainer.addEventListener("click", event => {
   navigator.clipboard.writeText(event.target.textContent)
 })
-
 
 function render() {
   colorsArray = []
@@ -40,12 +40,12 @@ function setInnerHTML() {
   hexcodeContainer.innerHTML = getColorHexValHTML(colorsArray)
 }
 
-
 function getHexValue(rbgStr) {
   fetch(`https://www.thecolorapi.com/id?rgb=${rbgStr}`)
     .then(res => res.json())
     .then(data => {
       navigator.clipboard.writeText(data.hex.value)
+      // return data.hex.value
     })
 }
 
