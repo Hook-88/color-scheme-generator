@@ -45,7 +45,6 @@ function getHexValue(rbgStr) {
     .then(res => res.json())
     .then(data => {
       navigator.clipboard.writeText(data.hex.value)
-      // return data.hex.value
     })
 }
 
