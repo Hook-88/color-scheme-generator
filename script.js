@@ -1,15 +1,19 @@
-const form = document.querySelector('form')
-const colorPickerEl = document.getElementById("color-picker")
-const colorModeEl = document.getElementById("color-mode")
-const colorBarsConatiner = document.querySelector("main")
-const hexcodeContainer =  document.querySelector("footer ul")
+import {getColorBarsHTML, getColorHexValHTML} from "./helpers.js"
+import {form, colorPickerEl, colorModeEl, colorBarsConatiner, hexcodeContainer} from "./htmlEls.js"
+
 let colorsArray = []
 
 form.addEventListener("submit", event => {
   event.preventDefault()
+  render()
+})
+
+form.addEventListener("change", () => render())
+
+function render() {
   colorsArray = []
   getColors() 
-})
+}
 
 function getColors() {
   fetch(`https://www.thecolorapi.com/scheme?hex=${colorPickerEl.value.slice(1)}&mode=${colorModeEl.value}&count=5`)
@@ -18,33 +22,14 @@ function getColors() {
       data.colors.forEach(color => {
         colorsArray.push(color.hex.value)
       })
-      render()
+      setInnerHTML()
     })
 }
 
-function render() {
-  colorBarsConatiner.innerHTML = getColorBarsHTML()
-  hexcodeContainer.innerHTML = getColorHexValHTML()
+function setInnerHTML() {
+  colorBarsConatiner.innerHTML = getColorBarsHTML(colorsArray)
+  hexcodeContainer.innerHTML = getColorHexValHTML(colorsArray)
 }
 
-function getColorBarsHTML() {
-  let html = ""
-  colorsArray.forEach(color => {
-    html += `
-      <div style="background: ${color}"></div>
-    `
-  })
-  return html
-}
+render()
 
-function getColorHexValHTML() {
-  let html = ""
-  colorsArray.forEach(color => {
-    html += `
-      <li>${color}</li>
-    `
-  })
-  return html
-}
-
-getColors()
