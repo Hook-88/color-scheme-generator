@@ -93,3 +93,8 @@ button {
     border: none;
     background-color: #3D4B60;
 }
+
+button:hover,
+button:active {
+    cursor: pointer;
+}
