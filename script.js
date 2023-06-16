@@ -10,13 +10,21 @@ form.addEventListener("submit", event => {
 
 form.addEventListener("change", () => render())
 
+colorBarsConatiner.addEventListener("click", event => {
+  getHexValue(event.target.style.backgroundColor)
+})
+
+hexcodeContainer.addEventListener("click", event => {
+  navigator.clipboard.writeText(event.target.textContent)
+})
+
+
 function render() {
   colorsArray = []
   getColors() 
 }
 
 function getColors() {
-  let arr = []
   fetch(`https://www.thecolorapi.com/scheme?hex=${colorPickerEl.value.slice(1)}&mode=${colorModeEl.value}&count=5`)
     .then(res => res.json())
     .then(data => {      
@@ -32,5 +40,17 @@ function setInnerHTML() {
   hexcodeContainer.innerHTML = getColorHexValHTML(colorsArray)
 }
 
+
+function getHexValue(rbgStr) {
+  fetch(`https://www.thecolorapi.com/id?rgb=${rbgStr}`)
+    .then(res => res.json())
+    .then(data => {
+      navigator.clipboard.writeText(data.hex.value)
+    })
+}
+
 render()
+
+
+
 

@@ -88,6 +88,11 @@ button {
     background-color: #3D4B60;
 }
 
+
+main:hover,
+main:active,
+li:hover,
+li:active,
 button:hover,
 button:active {
     cursor: pointer;

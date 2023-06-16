@@ -1,6 +1,6 @@
 function getColorBarsHTML(arr) {
   return arr.reduce((acc, curr) => {
-    return acc + `<div style="background: ${curr}"></div>`
+    return acc + `<div style="background-color: ${curr}"></div>`
   }, "")
 }
 
